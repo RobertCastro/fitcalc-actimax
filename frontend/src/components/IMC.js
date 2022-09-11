@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import './imc.css';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const IMC = () => {
@@ -20,7 +21,7 @@ const IMC = () => {
                     errores.altura = "Solo se permite números"
                 }
                 if (!valores.peso) {
-                    errores.peso = "Por favor ingresa tú peso"
+                    errores.peso = "Ingresa tú peso"
                 } else if(!/^[0-9]/.test(valores.peso)) {
                     errores.peso = "Solo se permiten números"
                 }
@@ -38,13 +39,13 @@ const IMC = () => {
             { ({values, errors, touched, handleChange, submitForm, handleBlur}) => (
 
                 <Form className="formulario" >
-                    <div>
+                    <div className='calc-form-group'>
                         <label htmlFor="altura">Altura</label>
                         <Field 
                             type="number" 
                             id="altura" 
                             name="altura" 
-                            placeholder="175"
+                            placeholder="¿Cuál es tú altura en CM?"
                             onChange={(e) => {
                                 handleChange(e);
                                 setTimeout(submitForm, 0);
@@ -54,13 +55,13 @@ const IMC = () => {
                             <div className="error">{errors.altura}</div>
                         )} />
                     </div>
-                    <div>
+                    <div className='calc-form-group'>
                         <label htmlFor="peso">Peso</label>
                         <Field 
                             type="number" 
                             id="peso" 
                             name="peso" 
-                            placeholder="74"
+                            placeholder="¿Cuál es tú peso en KG?"
                             onChange={(e) => {
                                 handleChange(e);
                                 setTimeout(submitForm, 0);
@@ -71,7 +72,7 @@ const IMC = () => {
                         )} />
                     </div>
 
-                    { IMC && <p className='exito'>IMC: {IMC} </p> }
+                    { IMC && <h3 className='exito'>Su IMC es: {IMC} </h3> }
 
                 </Form>
 
