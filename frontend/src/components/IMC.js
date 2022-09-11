@@ -15,7 +15,7 @@ const IMC = () => {
             validate={(valores) => {
                 let errores = {}
                 if (!valores.altura) {
-                    errores.altura = "Ingresa t tú altura"
+                    errores.altura = "Ingresa tú altura"
                 } else if(!/^[0-9]/.test(valores.altura)) {
                     errores.altura = "Solo se permite números"
                 }
