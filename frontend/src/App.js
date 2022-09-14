@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />}  />
-        <Route path='/blog/calculadora-imc-indice-de-masa-corporal/' element={<IMC />}  />
+        <Route path='/blog/calcular-imc-indice-de-masa-corporal/' element={<IMC />}  />
 
       </Routes>
     </div>
