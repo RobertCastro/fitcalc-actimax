@@ -13,3 +13,10 @@
     background-color: #f1f1f1;
     height: 56px;
 }
+
+.calc-form-group select{
+    border-radius: 8px;
+    border: 2px solid #002f87;
+    background-color: #f1f1f1;
+    height: 56px;
+}
