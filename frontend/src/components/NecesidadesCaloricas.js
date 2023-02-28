@@ -127,7 +127,7 @@ function NecesidadesCaloricas() {
     <button type="submit">Calcular</button>
   </form>
   <div>
-    <p>Tu requerimiento calórico diario es de: {calorias} kcal</p>
+    <p>Con {calorias} cal por día te acercarás a tu objetivo</p>
   </div>
 </div>
 );
