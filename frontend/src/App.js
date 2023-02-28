@@ -1,7 +1,7 @@
 import './App.css';
 import IMC from './components/IMC';
 import { Route, Routes  } from 'react-router-dom';
-import GETForm from './components/GET';
+import NecesidadesCaloricas from './components/NecesidadesCaloricas';
 
 
 const Home = () => <h1>Home</h1>
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}  />
         <Route path='/blog/calcular-imc-indice-de-masa-corporal/' element={<IMC />}  />
-        <Route path='/blog/getform' element={<GETForm />} />
+        <Route path='/blog/calculadora-de-calorias/' element={<NecesidadesCaloricas />} />
 
       </Routes>
     </div>
