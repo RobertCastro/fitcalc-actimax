@@ -1,13 +1,11 @@
 import React, {useState} from 'react'
-import './imc.css';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
 const IMC = () => {
 
     const [IMC, setIMC] = useState(null)
-	
-	return (
-		<>
+
+    return (
+        <>
         <Formik
             initialValues={{
                 altura: '',
@@ -28,60 +26,61 @@ const IMC = () => {
                 return errores
             }}
             onSubmit={(valores, {resetForm}) =>{
-
+    
                 let altura = Math.round(valores.altura) / 100
                 let peso = Math.round(valores.peso)
                 let resIMC = (peso / Math.pow(altura, 2)).toFixed(2)
                 setIMC(resIMC)
             }}
         >
-
-            { ({values, errors, touched, handleChange, submitForm, handleBlur}) => (
-
-                <Form className="formulario" >
-                    <div className='calc-form-group'>
+    
+            { ({values, errors, touched, handleChange, handleBlur, handleSubmit}) => (
+    
+                <Form className="imc" onSubmit={handleSubmit}>
+                    <div className='form-group'>
                         <label htmlFor="altura">Altura</label>
                         <Field 
                             type="number" 
                             id="altura" 
                             name="altura" 
                             placeholder="¿Cuál es tú altura en CM?"
-                            onChange={(e) => {
-                                handleChange(e);
-                                setTimeout(submitForm, 0);
-                            }}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
                         />
                         <ErrorMessage name='altura' component={() => (
-                            <div className="error">{errors.altura}</div>
+                            <p className="error">{errors.altura}</p>
                         )} />
                     </div>
-                    <div className='calc-form-group'>
+                    <div className='form-group'>
                         <label htmlFor="peso">Peso</label>
                         <Field 
                             type="number" 
                             id="peso" 
                             name="peso" 
                             placeholder="¿Cuál es tú peso en KG?"
-                            onChange={(e) => {
-                                handleChange(e);
-                                setTimeout(submitForm, 0);
-                            }}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
                         />
                         <ErrorMessage name='peso' component={() => (
-                            <div className="error">{errors.peso}</div>
+                            <p className="error">{errors.peso}</p>
                         )} />
                     </div>
-
-                    { IMC && <h3 className='exito'>Su IMC es: {IMC} </h3> }
-
+                    <div className='form-group'>
+                        <button type="submit">Calcular IMC</button>
+                    </div>
+                    <div className='form-group'>
+                    { IMC && <h3 className='resultado-imc'>Su IMC es: {IMC} </h3> }
+                    </div>
+                    
                 </Form>
-
+    
             )}
-
+    
         </Formik>
-			
-		</>
-	);
+            
+        </>
+    );
+    
 }
- 
+
 export default IMC;

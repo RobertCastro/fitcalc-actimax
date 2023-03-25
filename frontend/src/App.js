@@ -1,7 +1,8 @@
-import './App.css';
-import IMC from './components/IMC';
+import './App.scss';
 import { Route, Routes  } from 'react-router-dom';
+import IMC from './components/IMC';
 import NecesidadesCaloricas from './components/NecesidadesCaloricas';
+import BikeSizeCalculator from './components/BikeSizeCalculator';
 
 
 const Home = () => <h1>Home</h1>
@@ -14,7 +15,7 @@ function App() {
         <Route path='/' element={<Home />}  />
         <Route path='/blog/calcular-imc-indice-de-masa-corporal/' element={<IMC />}  />
         <Route path='/blog/calculadora-de-calorias/' element={<NecesidadesCaloricas />} />
-
+        <Route path='/blog/talla-de-bicicleta-adecuada/' element={<BikeSizeCalculator />} />
       </Routes>
     </div>
   );
